@@ -1,0 +1,16 @@
+#!/bin/sh
+www_home="/srv/vhosts/$1"
+www_user="$2"
+www_desc="$1"
+
+echo "Adding for user $www_user in homedir $www_home with desc $www_desc"
+useradd -c "WWW user for $www_desc" -d "$www_home" -m -r -s /usr/sbin/nologin $www_user
+
+echo "Removing password"
+passwd -d -e $www_user
+
+echo "Setting appropriate permisson levels to above 9000"
+chown -R $www_user:$www_user "$www_home"
+
+
+

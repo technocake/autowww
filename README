@@ -1,0 +1,15 @@
+Disse skriptene kombinert lager en ny site med default config.
+
+Den mest aktuelle er:
+
+./new-site www.example.com
+
+den gjør alt.
+
+
+webroot i /srv/vhosts/<sitename>
+egen webbruker for siten
+config og enabling av site skjer automagisk.
+
+TODO: implementer sslconfig via letsencrypt.
+

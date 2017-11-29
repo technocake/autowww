@@ -1,0 +1,16 @@
+#!/bin/sh
+site="$1"
+user=`python -c "print '$1'.replace('.', '-')"`
+
+#Usr + srv folder
+/root/scripts/addwww "$site" "$user"
+# config
+/root/scripts/addwwwconf "$site"
+
+#enable/add SSL
+certbot run -d "$site"
+
+#enable + restart
+a2ensite "$site"
+apache2ctl graceful
+

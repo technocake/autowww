@@ -1,0 +1,7 @@
+#!/bin/sh
+www_home="/srv/vhosts/$1"
+www_conf="/etc/apache2/sites-available/$1.conf"
+
+echo "Making new site config from template "
+python /root/scripts/mkconf.py "$1" > "$www_conf"
+
